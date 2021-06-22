@@ -1,0 +1,22 @@
+.grid-4-btn{
+    display:Grid;
+    grid-gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.verical-divider{
+    width: 3px;
+    height:60vh;
+    background-color: #0d0d0d1a;
+    margin: 0 80px;
+}
+
+.home-container, .home-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-container{
+    min-height:100vh;
+}

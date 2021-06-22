@@ -1,0 +1,34 @@
+.RoundedButton{
+    cursor: pointer;
+    position: relative;
+    height:130px;
+    width: 130px;
+    border-radius: 50px;
+    background-color: #0d0d0d;
+}
+
+.hint{
+    font-size: 16px;
+    position:absolute;
+    color: #ffffff;
+    bottom: 20px;
+    opacity: 0;
+    animation: move-down 1s ease-in-out 0.5s forwards;
+}
+
+.icons{
+    color: #ffffff;
+    min-width:50px;
+    min-height:50px
+}
+
+@keyframes move-down{
+    from {
+        bottom: 20px;
+        opacity: 0
+    }
+    to{
+        bottom: 10px;
+        opacity: 1;
+    }
+}

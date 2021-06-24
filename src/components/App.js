@@ -12,12 +12,15 @@ import SignUp from "./SignUp";
 import { AuthProvider } from "../contexts/AuthContext";
 import Dashboard from "./Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import Nav from "./Navbar";
+import { Container } from "react-bootstrap";
 
 function App() {
   return (
     
       <Router>
         <AuthProvider>
+        <Container><Nav/></Container>
         <Switch>
           <Route path="/documents/:id">
             <TextEditor />

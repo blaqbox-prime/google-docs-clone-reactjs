@@ -10,7 +10,7 @@ function Nav() {
     const { currentUser, signout } = useAuth();
     const history = useHistory();
 
-    
+
     async function handleSignOut() {
         setError('')
         try{
@@ -23,8 +23,7 @@ function Nav() {
     }
 
   return (
-      <>
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="" expand="lg">
       <Navbar.Brand>
         <div className="d-flex align-items-center justify-content-center">
           <div
@@ -39,16 +38,15 @@ function Nav() {
           Blaqbox Docs
         </div>
       </Navbar.Brand>
+      <Navbar.Toggle/>
       <Navbar.Collapse className="justify-content-end">
     <Navbar.Text className="d-flex align-items-center">
-      {currentUser &&  currentUser.email}
+      {currentUser &&  <Link to="/dashboard">{currentUser.email}</Link>}
     
-      <Button style={{margin:"0 20px", padding:"0"}} variant="link" onClick={handleSignOut}>Sign Out</Button>
+      { currentUser && <Button style={{margin:"0 20px", padding:"0"}} variant="link" onClick={handleSignOut}>Sign Out</Button>}
     </Navbar.Text>
   </Navbar.Collapse>
     </Navbar>
-    {error && <Alert variant="danger" dismissible>{error} </Alert>}
-    </>
   );
 }
 

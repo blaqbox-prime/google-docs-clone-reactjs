@@ -26,7 +26,7 @@ export default function Dashboard() {
 
   // get Documents on mount
   useEffect(() => {
-    fetch(`http://localhost:5000/${currentUser.email}/documents`)
+    fetch(`https://blaqbox-docs.herokuapp.com/${currentUser.email}/documents`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -65,7 +65,7 @@ return (
 export function Documents({ docs, currentUser }) {
 
   const deleteDocument = (doc) =>{
-    fetch(`http://localhost:5000/${doc._id}/delete`,{
+    fetch(`https://blaqbox-docs.herokuapp.com/${doc._id}/delete`,{
       method: 'DELETE',
     }).then(res => res.json()).then(data => console.log(data)).catch(error => console.error(error));
   }

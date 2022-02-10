@@ -26,7 +26,7 @@ function App() {
             <TextEditor />
           </Route>
 
-        <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+        <PrivateRoute path="/dashboard" component={Dashboard}/>
 
           <Route path="/signup" component={SignUp}/>
            

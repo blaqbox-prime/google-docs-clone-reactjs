@@ -1,0 +1,90 @@
+.Documents{
+    width: 100%;
+    height: 80%;
+}
+
+.doc p, .doc h1, .doc h2, .doc h3{
+    margin-bottom: 0;
+}
+
+.doc:hover{
+    border: none;
+    color: white;
+    background-color: #252525;
+}
+
+.doc{
+    font-size: 1.3rem;
+    transition: all 0.3s ease-out;
+    outline: none;
+    cursor:pointer;
+    width: 100%;
+    border: .5px solid #5c5c5c;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .2rem 1rem;
+    margin: 1rem 0;
+}
+
+
+.doc__creator{
+    margin-left: 5rem;
+    font-style: italic;
+    color: #bebebe;
+}
+
+.doc__link{
+    text-decoration: none;
+    color: #252525;
+}
+
+.doc__link:hover{
+    color: inherit;
+}
+
+.doc__dlt_icon{
+   padding: 8px 9px;
+   font-size: 2.5em;
+   margin-left: .5em;
+   color: white;
+   background-color: #252525;
+   border-radius: 8px;
+   transition: background-color .2s ease-in-out;
+}
+
+.doc__dlt_icon:hover{
+    background-color: red;
+}
+
+/* Modal */
+
+.joinCollabModal{
+    position: absolute;
+    display: flex;
+    top: 10%;
+    z-index: 99999;
+    background-color: white;
+    box-shadow: 0 5px 20px rgb(37, 37, 37);
+    border-radius: 12px;
+    width: 60%;
+    height: 250px;
+    align-items: center;
+    justify-content:center
+}
+
+.joinCollabModal button{
+    margin-left: 1rem;
+    padding: .5em .8em;
+}
+
+.joinCollabModal input[type='text']{
+    width: 350px;
+    padding: .5em .8em;
+}
+
+.joinCollab__title{
+    position: absolute;
+    top: 30px;
+}

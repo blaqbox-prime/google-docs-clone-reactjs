@@ -3,6 +3,7 @@ import Quill from "quill";
 import 'quill/dist/quill.snow.css';
 import {io} from "socket.io-client";
 import {useParams} from 'react-router-dom';
+import { useAuth } from './../contexts/AuthContext';
 
 const TOOLBAR_OPTIONS = [
     [{header: [1,2,3,4,5,6,false]}],
@@ -19,6 +20,7 @@ const TOOLBAR_OPTIONS = [
 export default function TextEditor() {
 
     const {id: docId} = useParams();
+    const {currentUser} = useAuth();
     const [socket, setSocket] = useState();
     const [quill, setQuill] = useState();
 
@@ -61,6 +63,7 @@ export default function TextEditor() {
         }
     }, [socket,quill])
 
+
     //Recieve Quill changes
     useEffect(() => {
         if(socket == null || quill == null) return;
@@ -70,6 +73,7 @@ export default function TextEditor() {
         }
 
         socket.on('recieve-changes', handler)
+        
         return () => {
             socket.off('recieve-changes', handler)
         }
@@ -85,9 +89,9 @@ export default function TextEditor() {
     })
 
     //send doc id to the server
-    socket.emit('get-document',docId);
+    socket.emit('get-document',docId, currentUser.email);
 
-   },[socket, quill, docId]); 
+   },[socket, quill, docId, currentUser]); 
 
    const SAVE_INTERVAL_MS = 2000;
 
@@ -95,14 +99,14 @@ export default function TextEditor() {
     if(socket == null || quill == null) return;
 
     const interval = setInterval(()=>{
-        socket.emit('save-document', quill.getContents());
+        socket.emit('save-document', quill.getContents(),currentUser.email);
     },SAVE_INTERVAL_MS)
 
     return () => {
         clearInterval(interval);
     }
 
-   },[socket,quill])
+   },[socket,quill, currentUser])
 
     //Rendered Component
     return (

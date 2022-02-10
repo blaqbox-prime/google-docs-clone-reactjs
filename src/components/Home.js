@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import SignInForm from "./SignInForm";
 import RoundedButton from "./RoundedButton";
-import {Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import "./Home.css";
 import {useAuth} from "../contexts/AuthContext"
 import { faCheckSquare, faCoffee, faFile, faFolder, faPlus, faUser, faUserAlt, faUserAltSlash, faUserAstronaut, faUserCircle, faUserFriends } from '@fortawesome/free-solid-svg-icons'
